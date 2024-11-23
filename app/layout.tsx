@@ -6,6 +6,7 @@ import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { fonts } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+import { Analytics } from "@vercel/analytics/react";
 
 import '@/styles/globals.css';
 
@@ -18,7 +19,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Next Paste',
-  description: 'A simple paste service built with Next.js',
+  description: 'A simple paste service built with Next.js and Vercel',
 };
 
 interface RootLayoutProps {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <Header />
           {children}
           <Footer />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
