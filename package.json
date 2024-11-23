@@ -8,7 +8,7 @@
     "migrate": "prisma format && prisma generate && prisma db push",
     "studio": "prisma studio --schema ./prisma/schema.prisma",
     "dev": "next dev --turbopack",
-    "build": "pnpm run lint && pnpm run migrate && pnpm run generate && next build",
+    "build": "pnpm run lint && pnpm run migrate && next build",
     "start": "next start",
     "lint": "pnpm run check && prettier --check . && next lint",
     "format": "prettier --write . && next lint --fix"

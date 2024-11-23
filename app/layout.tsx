@@ -6,7 +6,7 @@ import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { fonts } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from '@vercel/analytics/react';
 
 import '@/styles/globals.css';
 
