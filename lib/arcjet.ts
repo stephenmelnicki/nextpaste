@@ -10,6 +10,6 @@ export default arcjet({
   characteristics: ['ip.src'],
   rules: [
     // protect against common attacks
-    shield({ mode: 'DRY_RUN' }),
+    shield({ mode: 'LIVE' }),
   ],
 });

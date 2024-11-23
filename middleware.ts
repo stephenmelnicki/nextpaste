@@ -9,7 +9,7 @@ export const config = {
 const aj = arcjet
   .withRule(
     detectBot({
-      mode: 'DRY_RUN', // TODO: use "LIVE"
+      mode: 'LIVE', // TODO: use "LIVE"
       allow: [
         'CATEGORY:SEARCH_ENGINE', // allow search engines
         'CATEGORY:PREVIEW', // allow preview links
@@ -17,7 +17,7 @@ const aj = arcjet
       ],
     }),
   )
-  .withRule(slidingWindow({ mode: 'DRY_RUN', interval: 60, max: 10 }));
+  .withRule(slidingWindow({ mode: 'LIVE', interval: 60, max: 10 }));
 
 export async function middleware(request: NextRequest) {
   const decision = await aj.protect(request);
@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   } else if (decision.isErrored()) {
     log.error('arcjet error:', decision.reason);
-    // return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 
   return NextResponse.next();
