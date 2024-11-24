@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { fonts } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/styles/globals.css';
 
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <Header />
           {children}
           <Footer />
+          <SpeedInsights />
           <Analytics />
         </ThemeProvider>
       </body>
